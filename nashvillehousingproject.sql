@@ -13,12 +13,6 @@ FROM nashvillehousing
 
 -- Standardize Date Format
 
-With example_date_conversion
-AS
-	(
-Select sale_date, sale_date::timestamp
-From nashvillehousing
-	)
 Select sale_date::date
 FROM nashvillehousing
 
@@ -28,7 +22,7 @@ Alter Column sale_date TYPE date
 
 
 
---Find nulls in the property_address columns and fill them matching parcel_id by using an inner join
+--Find nulls in the property_address columns and fill them, matching parcel_id by using an inner join
 
 Select *
 From nashvillehousing
